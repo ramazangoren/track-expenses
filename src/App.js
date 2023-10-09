@@ -1,5 +1,6 @@
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
 
@@ -24,8 +25,15 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense)=>{
+    console.log('in app js');
+    console.log(expense);
+}
   return (
     <div className="App">
+      {/* here with onAddExpense event handler we are getting data from NewExpense component and we are calling it in  NewExpense by props */}
+      <NewExpense onAddExpense = {addExpenseHandler} ></NewExpense>
       <Expenses items = {expenses}></Expenses>
     </div>
   );
